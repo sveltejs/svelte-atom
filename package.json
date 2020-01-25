@@ -59,7 +59,7 @@
     }
   },
   "dependencies": {
-    "atom-languageclient": "^0.9.5",
-    "svelte-language-server": "0.6.1"
+    "atom-languageclient": "^0.9.9",
+    "svelte-language-server": "0.10.3"
   }
 }
