@@ -3,12 +3,7 @@
   "version": "0.1.1",
   "main": "./lib/main.js",
   "description": "Syntax, diagnostics, and other smarts for svelte",
-  "keywords": [
-    "language",
-    "grammar",
-    "svelte",
-    "ide"
-  ],
+  "keywords": ["language", "grammar", "svelte", "ide"],
   "repository": "https://github.com/UnwrittenFun/svelte-atom",
   "license": "MIT",
   "engines": {
@@ -60,6 +55,6 @@
   },
   "dependencies": {
     "atom-languageclient": "^0.9.5",
-    "svelte-language-server": "0.6.1"
+    "svelte-language-server": "^0.14.13"
   }
 }

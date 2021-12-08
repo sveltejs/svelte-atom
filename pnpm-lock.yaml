@@ -1,0 +1,48 @@
+lockfileVersion: 5.3
+
+overrides:
+  typescript: 4.4.3
+
+specifiers:
+  atom-languageclient: ^0.9.5
+  svelte-language-server: 0.14.13
+
+dependencies:
+  atom-languageclient: 0.9.9
+  svelte-language-server: link:../../../projects/svelte/language-tools/packages/language-server
+
+packages:
+
+  /atom-languageclient/0.9.9:
+    resolution: {integrity: sha512-eAKLFhprcDksPtDtG2lrhQEosNMxEbS7MISpw7n6TIoPmTgolvo+GPAF+nSV+Z9MCss91i+M+TNk9Mj5C7y/CQ==}
+    dependencies:
+      fuzzaldrin-plus: 0.6.0
+      vscode-jsonrpc: 4.0.0
+      vscode-languageserver-protocol: 3.12.0
+      vscode-languageserver-types: 3.12.0
+    dev: false
+
+  /fuzzaldrin-plus/0.6.0:
+    resolution: {integrity: sha1-gy9kifvodnaUWVmckUpnDsIpR+4=}
+    dev: false
+
+  /vscode-jsonrpc/3.6.2:
+    resolution: {integrity: sha512-T24Jb5V48e4VgYliUXMnZ379ItbrXgOimweKaJshD84z+8q7ZOZjJan0MeDe+Ugb+uqERDVV8SBmemaGMSMugA==}
+    engines: {node: '>=4.0.0 || >=6.0.0'}
+    dev: false
+
+  /vscode-jsonrpc/4.0.0:
+    resolution: {integrity: sha512-perEnXQdQOJMTDFNv+UF3h1Y0z4iSiaN9jIlb0OqIYgosPCZGYh/MCUlkFtV2668PL69lRDO32hmvL2yiidUYg==}
+    engines: {node: '>=8.0.0 || >=10.0.0'}
+    dev: false
+
+  /vscode-languageserver-protocol/3.12.0:
+    resolution: {integrity: sha512-evY6hmyzLnwQrqlQWPrNBq1z8wrSNjLesmgPzeS6Zv11mVS5UJRel26hbM/DH5tHdn45huNzRW0eFHRmIm8LpA==}
+    dependencies:
+      vscode-jsonrpc: 3.6.2
+      vscode-languageserver-types: 3.12.0
+    dev: false
+
+  /vscode-languageserver-types/3.12.0:
+    resolution: {integrity: sha512-UxqnpzBToPO7Mi2tr/s5JeyPOSKSJtLB8lIdxCg9ZNdvP2cU8wS7iTDtwQKz91Ne4CUmTdf85ddR5SIZKXmMjQ==}
+    dev: false
