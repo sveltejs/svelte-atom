@@ -1,5 +1,7 @@
 # Svelte for Atom
 
+**NOTE 2021-12-08** This package is actively maintained again. Go Atom!
+
 Provides syntax highlighting and rich intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/UnwrittenFun/svelte-language-server).
 
 ## Features
