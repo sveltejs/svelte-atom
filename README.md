@@ -2,7 +2,7 @@
 
 **NOTE 2021-12-08** This package is actively maintained again. Go Atom!
 
-Provides syntax highlighting and rich intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/UnwrittenFun/svelte-language-server).
+Provides syntax highlighting and rich intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/sveltejs/language-tools/tree/master/packages/language-server).
 
 ## Features
 
@@ -33,5 +33,5 @@ More features coming soon.
 
 ## See Also
 
--   [Svelte Language Server](https://github.com/UnwrittenFun/svelte-language-server)
--   [Svelte VS Code](https://github.com/UnwrittenFun/svelte-vscode)
+-   [Svelte Language Server](https://github.com/sveltejs/language-tools/tree/master/packages/language-server)
+-   [Svelte VS Code](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-vscode)
