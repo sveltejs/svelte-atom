@@ -1,37 +1,19 @@
 # Svelte for Atom
 
-**NOTE 2021-12-08** This package is actively maintained again. Go Atom!
-
-Provides syntax highlighting and rich intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/sveltejs/language-tools/tree/master/packages/language-server).
+Provides syntax highlighting and intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/sveltejs/language-tools/tree/master/packages/language-server).
 
 ## Features
 
-- Svelte
-  - Diagnostic messages for warnings and errors
-  - Support for svelte preprocessors that provide source maps
-- HTML
-  - Hover info
-  - Autocompletions
-  - [Emmet](https://emmet.io/)
-  - Formatting
-  - Symbols in Outline panel
-- CSS / SCSS / LESS
-  - Diagnostic messages for syntax and lint errors
-  - Hover info
-  - Autocompletions
-  - Formatting (via [prettier](https://github.com/prettier/prettier))
-  - [Emmet](https://emmet.io/)
-  - Color highlighting and color picker
-  - Symbols in Outline panel
-- TypeScript / JavaScript
-  - Diagnostics messages for syntax and semantic errors
-  - Hover info
-  - Formatting (via [prettier](https://github.com/prettier/prettier))
-  - Symbols in Outline panel
+- TypeScript support in .svelte components
+- Diagnostic messages for warnings and errors
+- References & definitions provider
 
-More features coming soon.
+## Setup
 
-## See Also
+### Configure Node executable
 
-- [Svelte Language Server](https://github.com/sveltejs/language-tools/tree/master/packages/language-server)
-- [Svelte VS Code](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-vscode)
+The Svelte Language Server that powers most of this plugins features uses some JS features that are not supported by the Node version embedded with Atom. That's why, to benefit from all features from the language server (loading of your project's `svelte.config.js` notably), the plugin tries to run the language server on your system's Node.
+
+The default command the plugin uses to run Node is `node`, which will work if the Node.js executable is in your PATH and your PATH is visible to Atom. Otherwise you might need to customize this setting to provide the full path to a recent Node executable to be used to run the language server.
+
+If no such Node executable can be found by the plugin, then it will fallback on using the Node embedded with Atom. But this will incurs feature loss and/or erratic behaviour of the language server.
