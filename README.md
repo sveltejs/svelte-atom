@@ -34,5 +34,9 @@ While assuming no endorsement, the following Atom packages have been used with s
   - [language-typescript](https://atom.io/packages/language-typescript)
 - **Info tooltips**
   - [atom-ide-datatip](https://atom.io/packages/atom-ide-datatip)
-- **Navigate references / jump to definition**
+- **Navigate references/definitions**
   - [atom-refs](https://atom.io/packages/atom-refs) Still, no endorsment, but I can vouch for the author ^^ (full disclaimer: it's me).
+- **Prettier**
+  - [mprettier](https://atom.io/packages/mprettier) Hard & fast alternative to the official [prettier-atom](https://atom.io/packages/prettier-atom) plugin.
+- **Emmet snippets**
+  - [emmet](https://atom.io/packages/emmet)
