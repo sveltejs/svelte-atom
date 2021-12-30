@@ -1,0 +1,150 @@
+name: 'Svelte'
+scopeName: 'source.svelte',
+type: 'tree-sitter'
+parser: 'tree-sitter-svelte'
+
+fileTypes: ['svelte']
+
+injectionRegex: '^svelte$'
+
+comments:
+  start: '<!--'
+  end: '-->'
+
+folds: [
+  {
+    type: 'comment'
+  }
+  {
+    type: ['start_tag', 'raw_start_tag', 'self_closing_tag'],
+    start: {index: 1},
+    end: {index: -1}
+  }
+  {
+    type: ['element', 'raw_element', 'script_element', 'style_element'],
+    start: {index: 0},
+    end: {index: -1}
+  }
+  {
+    type: [
+      'if_statement'
+      'else_if_statement'
+      'else_statement'
+      'await_statement'
+      'then_statement'
+      'catch_statement'
+    ]
+  }
+]
+
+scopes:
+  'document': 'source.svelte.html',
+
+  'tag_name': [
+    {match: /^[\s\n]*[A-Z]/, scopes: 'support.type'}
+    {match: /^svelte:(self|component|window|body|head|options|fragment)$/, scopes: 'entity.name.type.svelte'}
+    'entity.name.tag'
+  ]
+
+  'erroneous_end_tag_name': 'invalid.illegal'
+
+  'doctype': 'meta.tag.doctype.html'
+
+  'attribute_name': [
+    {match: /^\{.*\}$/, scopes: 'source.js.ts'}
+    'entity.other.attribute-name'
+  ]
+
+  'attribute_value': 'string.html'
+
+  'comment': 'comment.block.html'
+
+  '''
+  start_tag > "<",
+  end_tag > "</",
+  start_tag > ">",
+  end_tag > ">",
+  self_closing_tag > "<",
+  self_closing_tag > "/>",
+  ''': 'entity.operator.html.svelte'
+
+  'attribute > "="': 'punctuation.separator.key-value.html'
+
+  "quoted_attribute_value > '\"':nth-child(0)": 'punctuation.definition.string.begin'
+  'quoted_attribute_value > "\'":nth-child(0)': 'punctuation.definition.string.begin'
+  "quoted_attribute_value > '\"':nth-child(2)": 'punctuation.definition.string.end'
+  'quoted_attribute_value > "\'":nth-child(2)': 'punctuation.definition.string.end'
+
+  '''
+  special_block_keyword,
+  then,
+  catch,
+  as,
+  ''': 'keyword.control.svelte'
+
+  'expression > "{"': 'punctuation.section.embedded.svelte'
+  'expression > "}"': 'punctuation.section.embedded.svelte'
+
+  '''
+  attribute > attribute_name > "{",
+  attribute > attribute_name > "}",
+  ''':
+    match: /^\{|\}$/
+    scopes: 'punctuation.section.embedded.svelte'
+
+  '''
+  if_start_expr > "{",
+  if_start_expr > "#",
+  if_start_expr > "}",
+  if_end_expr > "{",
+  if_end_expr > "/",
+  if_end_expr > "}",
+  else_if_expr > "{",
+  else_if_expr > ":",
+  else_if_expr > "}",
+  else_expr > "{",
+  else_expr > ":",
+  else_expr > "}",
+
+  each_start_expr > "{",
+  each_start_expr > "#",
+  each_start_expr > "}",
+  each_end_expr > "{",
+  each_end_expr > "/",
+  each_end_expr > "}",
+
+  await_start_expr > "{",
+  await_start_expr > "#",
+  await_start_expr > "}",
+  await_end_expr > "{",
+  await_end_expr > "/",
+  await_end_expr > "}",
+  then_expr > "{",
+  then_expr > ":",
+  then_expr > "}",
+  catch_expr > "{",
+  catch_expr > ":",
+  catch_expr > "}",
+
+  key_start_expr > "{",
+  key_start_expr > "#",
+  key_start_expr > "}",
+  key_end_expr > "{",
+  key_end_expr > "/",
+  key_end_expr > "}",
+
+  html_expr > "{",
+  html_expr > "@",
+  html_expr > "}",
+
+  debug_expr > "{",
+  debug_expr > "@",
+  debug_expr > "}",
+  ''': 'keyword.operator.svelte'
+
+  '''
+  script_element > start_tag > tag_name,
+  script_element > end_tag > tag_name,
+  style_element > start_tag > tag_name,
+  style_element > end_tag > tag_name,
+  ''': 'entity.name.type.svelte'

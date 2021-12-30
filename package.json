@@ -3,7 +3,12 @@
   "version": "0.1.1",
   "main": "./lib/main.js",
   "description": "Syntax, diagnostics, and other smarts for svelte",
-  "keywords": ["language", "grammar", "svelte", "ide"],
+  "keywords": [
+    "language",
+    "grammar",
+    "svelte",
+    "ide"
+  ],
   "repository": "https://github.com/sveltejs/svelte-atom",
   "license": "MIT",
   "engines": {
@@ -55,6 +60,8 @@
   },
   "dependencies": {
     "atom-languageclient": "^1.16.1",
-    "svelte-language-server": "^0.14.14"
+    "svelte-language-server": "^0.14.14",
+    "tree-sitter-svelte": "github:rixo/tree-sitter-svelte#atom",
+    "tree-sitter-typescript": "^0.16.1"
   }
 }

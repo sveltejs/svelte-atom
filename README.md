@@ -4,6 +4,7 @@ Provides syntax highlighting and intellisense for Svelte components in Atom, uti
 
 ## Features
 
+- Syntax highlighting with tree-sitter
 - TypeScript support in .svelte components
 - Diagnostic messages for warnings and errors
 - References & definitions provider
@@ -18,9 +19,17 @@ The default command the plugin uses to run Node is `node`, which will work if th
 
 If no such Node executable can be found by the plugin, then it will fallback on using the Node embedded with Atom. But this will incurs feature loss and/or erratic behaviour of the language server.
 
+### Syntax highlighting / grammar
+
+This plugin only ships with a tree-sitter grammar. The legacy TextMate grammar has failed to keep up with Svelte's evolutions ([#8](https://github.com/sveltejs/svelte-atom/issues/8)...), and fixing it is beyond the current maintainer's means.
+
+This means that, in order to benefit from syntax highlighting of `.svelte` files from this plugin, you need to enable "Use Tree Sitter Parsers" in Atom's "Settings > Core". Unfortunately, this can affect the syntax highlighting of the other languages you use (presumably for the best!). If enabling tree-sitter grammars is not an option for you, you can try to use [language-svelte](https://atom.io/packages/language-svelte) that provides a TextMate grammar.
+
+Future plans: the VSCode plugin features a very good and well maintained TextMate grammar for Svelte. Unfortunately, this grammar uses regular expressions features that are not currently by Atom... So the long term hope would be to reintegrate and share the language-tools / VSCode TextMate grammar once the required features becomes supported by Atom. In any event, the tree-sitter grammar should continue to be provided by this plugin.
+
 ### Ensure you have supporting plugins
 
-This packages mainly only _exposes_ language features to be consumed by other plugins. It doesn't come with the supporting UI features that are expected to be provided by other "consumer" plugins.
+Appart from grammar, this packages mainly only _exposes_ language features to be consumed by other plugins. It doesn't come with the supporting UI features that are expected to be provided by other "consumer" plugins.
 
 Depending on your tastes, you can try the all inclusive [Atom IDE](https://ide.atom.io/) package, or try to compose for yourself a more personalized experience by hand picking and configuring a bunch of specialized plugins (Atom is all about hacking your IDE after all, isn't it?).
 
