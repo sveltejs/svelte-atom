@@ -1,6 +1,8 @@
 # Svelte for Atom
 
-Provides syntax highlighting and intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/sveltejs/language-tools/tree/master/packages/language-server).
+Provides intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/sveltejs/language-tools/tree/master/packages/language-server).
+
+**This package does NOT ship with a Svelte grammar / syntax highlighting.** See [this doc](https://github.com/sveltejs/svelte-atom/blob/master/docs/grammar.md) for up to date details and available solutions.
 
 ## Features
 
@@ -40,3 +42,9 @@ While assuming no endorsement, the following Atom packages have been used with s
   - [mprettier](https://atom.io/packages/mprettier) Hard & fast alternative to the official [prettier-atom](https://atom.io/packages/prettier-atom) plugin.
 - **Emmet snippets**
   - [emmet](https://atom.io/packages/emmet)
+
+### Grammar / syntax highlighting
+
+You'll need a separate grammar package for syntax highlighting of Svelte files. Currently available options are the following:
+
+- [language-svelte](https://atom.io/packages/language-svelte) A community maintained TextMate grammar for Svelte.
