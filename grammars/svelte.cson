@@ -1,12 +1,32 @@
+# This grammar was adapted from the one in the VSCode extension:
+#
+#   https://github.com/sveltejs/language-tools/blob/6b65f0dd2dedbc9bde4802310cd451a7606b5dd0/packages/svelte-vscode/syntaxes/svelte.tmLanguage.src.yaml
+#
+# From now on it shouldn't be too hard to keep it in sync with the upstream one.
+#
+# A few things to note about current Atom (1.59) support of TextMate grammars...
+#
+# - Atom doesn't like wildcards in lookbehinds. Not sure where this is coming
+#   from since TextMate grammars use Oniguruma under the hood and Atom doesn't
+#   seem espcially outdated in this regard. Maybe that's me being thick again.
+#
+# - `injections` selectors seem flacky, and I couldn't find any spec about them.
+#   Neither did the guy who implemented the Atom version apparently
+#   (https://github.com/atom/first-mate/pull/78#issue-180769334). I had to
+#   expand the (... | ...) patterns to prevent a total crash of the grammar and,
+#   through trial and error, I determined that the presence or absence of the
+#   hypen `-` was of crucial importance for the injection to activate _and_ not
+#   leak into the whole file. But I didn't understand the underlying logic.
+#
 {
   "name": "Svelte Component",
   "scopeName": "source.svelte",
   "fileTypes": [
     "svelte"
   ],
-  "uuid": "7582b62f-51d9-4a84-8c8d-fc189530faf6",
+  "uuid": "ce5fbbd0-f7b0-42a8-a257-e731a210c57b",
   "injections": {
-    "L:(meta.script.svelte | meta.style.svelte) (meta.lang.js | meta.lang.javascript) - (meta source)": {
+    "L:meta.script.svelte meta.lang.js - (meta source)": {
       "patterns": [
         {
           "begin": "(?<=>)(?!</)",
@@ -21,7 +41,22 @@
         }
       ]
     },
-    "L:(meta.script.svelte | meta.style.svelte) (meta.lang.ts | meta.lang.typescript) - (meta source)": {
+    "L:meta.script.svelte meta.lang.javascript - (meta source)": {
+      "patterns": [
+        {
+          "begin": "(?<=>)(?!</)",
+          "end": "(?=</)",
+          "name": "meta.embedded.block.svelte",
+          "contentName": "source.js",
+          "patterns": [
+            {
+              "include": "source.js"
+            }
+          ]
+        }
+      ]
+    },
+    "L:meta.script.svelte meta.lang.ts - (meta source)": {
       "patterns": [
         {
           "begin": "(?<=>)(?!</)",
@@ -36,7 +71,22 @@
         }
       ]
     },
-    "L:(meta.script.svelte | meta.style.svelte) meta.lang.coffee - (meta source)": {
+    "L:meta.script.svelte meta.lang.typescript - (meta source)": {
+      "patterns": [
+        {
+          "begin": "(?<=>)(?!</)",
+          "end": "(?=</)",
+          "name": "meta.embedded.block.svelte",
+          "contentName": "source.ts",
+          "patterns": [
+            {
+              "include": "source.ts"
+            }
+          ]
+        }
+      ]
+    },
+    "L:meta.script.svelte meta.lang.coffee - (meta source)": {
       "patterns": [
         {
           "begin": "(?<=>)(?!</)",
@@ -51,7 +101,7 @@
         }
       ]
     },
-    "L:meta.script.svelte - meta.lang - (meta source)": {
+    "L:meta.script.svelte - (meta source)": {
       "patterns": [
         {
           "begin": "(?<=>)(?!</)",
@@ -394,7 +444,7 @@
     "special-tags-modes": {
       "patterns": [
         {
-          "begin": "(?<=(if|key|then|catch|html).*?)\\G",
+          "begin": "((?<=if)|(?<=key)|(?<=then)|(?<=catch)|(?<=html)).*?\\G",
           "end": "(?=})",
           "name": "meta.embedded.expression.svelte source.ts",
           "patterns": [
@@ -404,7 +454,7 @@
           ]
         },
         {
-          "begin": "(?<=const.*?)\\G",
+          "begin": "(?<=const).*?\\G",
           "end": "(?=})",
           "patterns": [
             {
@@ -428,7 +478,7 @@
           ]
         },
         {
-          "begin": "(?<=each.*?)\\G",
+          "begin": "(?<=each).*?\\G",
           "end": "(?=})",
           "patterns": [
             {
@@ -490,7 +540,7 @@
           ]
         },
         {
-          "begin": "(?<=await.*?)\\G",
+          "begin": "(?<=await).*?\\G",
           "end": "(?=})",
           "patterns": [
             {
@@ -509,7 +559,7 @@
               ]
             },
             {
-              "begin": "(?<=then\\b)",
+              "begin": "(?<=then)\\b",
               "end": "(?=})",
               "contentName": "meta.embedded.expression.svelte source.ts",
               "patterns": [
@@ -521,7 +571,7 @@
           ]
         },
         {
-          "begin": "(?<=debug.*?)\\G",
+          "begin": "(?<=debug).*?\\G",
           "end": "(?=})",
           "patterns": [
             {
@@ -659,7 +709,7 @@
               "name": "support.type.property-name.svelte"
             },
             {
-              "match": ".*",
+              "match": ".+", # changed from .* that started a loop
               "name": "entity.other.attribute-name.svelte"
             }
           ]
@@ -760,19 +810,19 @@
     "attributes-directives-types": {
       "patterns": [
         {
-          "match": "(?<=(on):).*$",
-          "name": "entity.name.type.svelte"
-        },
-        {
-          "match": "(?<=(bind):).*$",
+          "match": "(?<=bind:).*$",
           "name": "variable.parameter.svelte"
         },
         {
-          "match": "(?<=(use|transition|in|out|animate):).*$",
+          "match": "(?:(?<=use:)|(?<=transition:)|(?<=in:)|(?<=out:)|(?<=animate:)).*$",
           "name": "variable.function.svelte"
         },
+        { # moved after transition, because it matches transition
+          "match": "(?<=on:).*$",
+          "name": "entity.name.type.svelte"
+        },
         {
-          "match": "(?<=(let|class|style):).*$",
+          "match": "((?<=let:)|(?<=class:)|(?<=style:)).*$",
           "name": "variable.parameter.svelte"
         }
       ]
@@ -801,31 +851,23 @@
       ]
     },
     "attributes-directives": {
-      "begin": "(?<!<)(on|use|bind|transition|in|out|animate|let|class|style)(:)(?:((?:--)?[_$[:alpha:]][_\\-$[:alnum:]]*(?=\\s*=))|((?:--)?[_$[:alpha:]][_\\-$[:alnum:]]*))((\\|\\w+)*)",
+      "begin": "(?<!<)((?:on|use|bind|transition|in|out|animate|let|class|style)(:)(?:((?:--)?[_$[:alpha:]][_\\-$[:alnum:]]*(?=\\s*=))|((?:--)?[_$[:alpha:]][_\\-$[:alnum:]]*)))((\\|\\w+)*)",
       "beginCaptures": {
         "1": {
           "patterns": [
             {
               "include": "#attributes-directives-keywords"
             }
-          ]
-        },
-        "2": {
-          "name": "punctuation.definition.keyword.svelte"
-        },
-        "3": {
-          "patterns": [
             {
               "include": "#attributes-directives-types-assigned"
             }
-          ]
-        },
-        "4": {
-          "patterns": [
             {
               "include": "#attributes-directives-types"
             }
           ]
+        },
+        "2": {
+          "name": "punctuation.definition.keyword.svelte"
         },
         "5": {
           "patterns": [
@@ -913,11 +955,7 @@
       "begin": "\\G",
       "end": "(?=/?>)",
       "name": "meta.tag.start.svelte",
-      "patterns": [
-        {
-          "include": "#attributes"
-        }
-      ]
+      "include": "#attributes"
     },
     "tags-lang-start-attributes": {
       "begin": "\\G",
