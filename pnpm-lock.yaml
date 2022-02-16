@@ -2,10 +2,12 @@ lockfileVersion: 5.3
 
 specifiers:
   atom-languageclient: ^1.16.1
+  prettier: ^2.5.1
   svelte-language-server: ^0.14.21
 
 dependencies:
   atom-languageclient: 1.16.1
+  prettier: 2.5.1
   svelte-language-server: 0.14.21
 
 packages:
