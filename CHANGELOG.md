@@ -1,6 +1,6 @@
 # Atom IDE Svelte changelog
 
-## next
+## v1.1.0
 
 - Add options to enable diagnostics by source (ts: true, svelte: true, js: false), fixes [#6](https://github.com/sveltejs/svelte-atom/issues/6)
 - Changing Node executable doesn't require to restart Atom anymore
