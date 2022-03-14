@@ -1,6 +1,6 @@
 # Atom IDE Svelte changelog
 
-## next
+## v1.2.0
 
 - Change embed grammar to TS in every case because it has less issues (fixes [#18](https://github.com/sveltejs/svelte-atom/issues/18))
 
