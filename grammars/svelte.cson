@@ -32,10 +32,10 @@
           "begin": "(?<=>)(?!</)",
           "end": "(?=</)",
           "name": "meta.embedded.block.svelte",
-          "contentName": "source.js",
+          "contentName": "source.ts",
           "patterns": [
             {
-              "include": "source.js"
+              "include": "source.ts"
             }
           ]
         }
@@ -47,10 +47,10 @@
           "begin": "(?<=>)(?!</)",
           "end": "(?=</)",
           "name": "meta.embedded.block.svelte",
-          "contentName": "source.js",
+          "contentName": "source.ts",
           "patterns": [
             {
-              "include": "source.js"
+              "include": "source.ts"
             }
           ]
         }
@@ -107,10 +107,10 @@
           "begin": "(?<=>)(?!</)",
           "end": "(?=</)",
           "name": "meta.embedded.block.svelte",
-          "contentName": "source.js",
+          "contentName": "source.ts",
           "patterns": [
             {
-              "include": "source.js"
+              "include": "source.ts"
             }
           ]
         }

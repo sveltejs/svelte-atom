@@ -1,5 +1,9 @@
 # Atom IDE Svelte changelog
 
+## next
+
+- Change embed grammar to TS in every case because it has less issues (fixes [#18](https://github.com/sveltejs/svelte-atom/issues/18))
+
 ## v1.1.0
 
 - Add options to enable diagnostics by source (ts: true, svelte: true, js: false), fixes [#6](https://github.com/sveltejs/svelte-atom/issues/6)
