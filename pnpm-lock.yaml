@@ -2,13 +2,17 @@ lockfileVersion: 5.3
 
 specifiers:
   atom-languageclient: ^1.16.1
-  prettier: ^2.5.1
+  prettier: github:helixbass/prettier#prettier-v2.1.0-dev.100-gitpkg
+  prettier-plugin-coffeescript: ^0.1.5
   svelte-language-server: ^0.14.21
 
 dependencies:
   atom-languageclient: 1.16.1
-  prettier: 2.5.1
   svelte-language-server: 0.14.21
+
+devDependencies:
+  prettier: github.com/helixbass/prettier/1396f0979c6f6395e70384945a38888af23db6e0
+  prettier-plugin-coffeescript: 0.1.5
 
 packages:
 
@@ -220,6 +224,12 @@ packages:
     resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
     dev: false
 
+  /coffeescript/2.6.1:
+    resolution: {integrity: sha512-GG5nkF93qII8HmHqnnibkgpp/SV7PSnSPiWsbinwya7nNOe95aE/x2xrKZJFks8Qpko3TNrC+/LahaKgrz5YCg==}
+    engines: {node: '>=6'}
+    hasBin: true
+    dev: true
+
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
     dev: false
@@ -255,6 +265,11 @@ packages:
   /estree-walker/2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
     dev: false
+
+  /esutils/2.0.3:
+    resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
+    engines: {node: '>=0.10.0'}
+    dev: true
 
   /fast-glob/3.2.7:
     resolution: {integrity: sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==}
@@ -469,6 +484,15 @@ packages:
     resolution: {integrity: sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==}
     engines: {node: '>=8.6'}
     dev: false
+
+  /prettier-plugin-coffeescript/0.1.5:
+    resolution: {integrity: sha512-xezyA/aQH2P9SyPQU2VMkcPdkq4Ekc8gI+hmnP/noJBJfPwSoFZHcwapWfEDTlOq8BxZ9bqdPHzdZf2jQ9m2Cg==}
+    engines: {node: '>= 6'}
+    dependencies:
+      coffeescript: 2.6.1
+      esutils: 2.0.3
+      prettier: github.com/helixbass/prettier/1396f0979c6f6395e70384945a38888af23db6e0
+    dev: true
 
   /prettier-plugin-svelte/2.6.0_prettier@2.5.1+svelte@3.46.4:
     resolution: {integrity: sha512-NPSRf6Y5rufRlBleok/pqg4+1FyGsL0zYhkYP6hnueeL1J/uCm3OfOZPsLX4zqD9VAdcXfyEL2PYqGv8ZoOSfA==}
@@ -812,3 +836,11 @@ packages:
       node-addon-api: 4.0.0
       node-gyp-build: 4.3.0
     dev: false
+
+  github.com/helixbass/prettier/1396f0979c6f6395e70384945a38888af23db6e0:
+    resolution: {tarball: https://codeload.github.com/helixbass/prettier/tar.gz/1396f0979c6f6395e70384945a38888af23db6e0}
+    name: prettier
+    version: 2.1.0-dev.100
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true

@@ -1,3 +1,5 @@
+pluginSearchDirs:
+  - .
 semi: false
 trailingComma: "all"
 singleQuote: true

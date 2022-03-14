@@ -60,7 +60,10 @@
   },
   "dependencies": {
     "atom-languageclient": "^1.16.1",
-    "prettier": "^2.5.1",
     "svelte-language-server": "^0.14.21"
+  },
+  "devDependencies": {
+    "prettier": "github:helixbass/prettier#prettier-v2.1.0-dev.100-gitpkg",
+    "prettier-plugin-coffeescript": "^0.1.5"
   }
 }
