@@ -23,7 +23,7 @@ scopeName: 'source.svelte'
 fileTypes: ['svelte']
 uuid: 'ce5fbbd0-f7b0-42a8-a257-e731a210c57b'
 injections:
-  'L:meta.script.svelte meta.lang.js - (meta source)':
+  'L:(meta.script.svelte meta.lang.js - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -31,7 +31,7 @@ injections:
       contentName: 'source.ts'
       patterns: [include: 'source.ts']
     ]
-  'L:meta.script.svelte meta.lang.javascript - (meta source)':
+  'L:(meta.script.svelte meta.lang.javascript - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -39,7 +39,7 @@ injections:
       contentName: 'source.ts'
       patterns: [include: 'source.ts']
     ]
-  'L:meta.script.svelte meta.lang.ts - (meta source)':
+  'L:(meta.script.svelte meta.lang.ts - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -47,7 +47,7 @@ injections:
       contentName: 'source.ts'
       patterns: [include: 'source.ts']
     ]
-  'L:meta.script.svelte meta.lang.typescript - (meta source)':
+  'L:(meta.script.svelte meta.lang.typescript - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -55,7 +55,7 @@ injections:
       contentName: 'source.ts'
       patterns: [include: 'source.ts']
     ]
-  'L:meta.script.svelte meta.lang.coffee - (meta source)':
+  'L:(meta.script.svelte meta.lang.coffee - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -63,7 +63,7 @@ injections:
       contentName: 'source.coffee'
       patterns: [include: 'source.coffee']
     ]
-  'L:meta.script.svelte - (meta source)':
+  'L:(meta.script.svelte - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -71,7 +71,7 @@ injections:
       contentName: 'source.ts'
       patterns: [include: 'source.ts']
     ]
-  'L:meta.style.svelte meta.lang.stylus - (meta source)':
+  'L:(meta.style.svelte meta.lang.stylus - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -79,7 +79,7 @@ injections:
       contentName: 'source.stylus'
       patterns: [include: 'source.stylus']
     ]
-  'L:meta.style.svelte meta.lang.sass - (meta source)':
+  'L:(meta.style.svelte meta.lang.sass - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -87,7 +87,7 @@ injections:
       contentName: 'source.sass'
       patterns: [include: 'source.sass']
     ]
-  'L:meta.style.svelte meta.lang.css - (meta source)':
+  'L:(meta.style.svelte meta.lang.css - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -95,7 +95,7 @@ injections:
       contentName: 'source.css'
       patterns: [include: 'source.css']
     ]
-  'L:meta.style.svelte meta.lang.scss - (meta source)':
+  'L:(meta.style.svelte meta.lang.scss - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -103,7 +103,7 @@ injections:
       contentName: 'source.css.scss'
       patterns: [include: 'source.css.scss']
     ]
-  'L:meta.style.svelte meta.lang.less - (meta source)':
+  'L:(meta.style.svelte meta.lang.less - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -111,7 +111,7 @@ injections:
       contentName: 'source.css.less'
       patterns: [include: 'source.css.less']
     ]
-  'L:meta.style.svelte meta.lang.postcss - (meta source)':
+  'L:(meta.style.svelte meta.lang.postcss - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -119,7 +119,7 @@ injections:
       contentName: 'source.css.postcss'
       patterns: [include: 'source.css.postcss']
     ]
-  'L:meta.style.svelte - meta.lang - (meta source)':
+  'L:(meta.style.svelte - meta.lang - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -127,7 +127,7 @@ injections:
       contentName: 'source.css'
       patterns: [include: 'source.css']
     ]
-  'L:meta.template.svelte meta.lang.pug - (meta source)':
+  'L:(meta.template.svelte meta.lang.pug - (meta source))':
     patterns: [
       begin: '(?<=>)(?!</)'
       end: '(?=</)'
@@ -135,7 +135,7 @@ injections:
       contentName: 'text.pug'
       patterns: [include: 'text.pug']
     ]
-  'L:meta.template.svelte - meta.lang - (meta source)':
+  'L:(meta.template.svelte - meta.lang - (meta source))':
     patterns: [
       begin: '(?<=>)\\s'
       end: '(?=</template)'
